@@ -1,0 +1,28 @@
+.tab-pane{
+    -fx-background-image: url("images/page-light.png");
+}
+
+.tab-pane:focused>.tab-header-area>.headers-region>.tab:selected .focus-indicator {
+   -fx-border-color: transparent;
+}
+
+.tab-pane:top *.tab-header-area{
+    -fx-padding: -1 -1 -1 -1;
+}
+
+.tab-pane .tab-header-area .tab-header-background{
+    -fx-background-image: url("images/page-extra-footer.png");
+}
+
+.tab{
+    -fx-background-color: transparent;
+    -fx-padding: 8 8 8 8;
+    -fx-focus-color: transparent;
+}
+.tab:focused{
+    -fx-focus-color: transparent;
+}
+
+.tab:selected{
+    -fx-background-color: rgba(155,155,155,0.5);
+}

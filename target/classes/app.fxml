@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import customNode.FilteredComboBox?>
+<?import customNode.FilteredComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane prefHeight="750.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+    <stylesheets>
+        <String fx:value="appStyle"/>
+    </stylesheets>
+   <children>
+      <TabPane prefHeight="750.0" prefWidth="1050.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="moviesTab" text="Filmy">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="1000.0">
+                     <children>
+                        <TableView fx:id="moviesTable" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="700.0">
+                          <columns>
+                            <TableColumn fx:id="idMoviesCol" editable="false" prefWidth="35.0" text="lp." />
+                            <TableColumn fx:id="orgTitleCol" editable="false" prefWidth="148.99998474121094" text="Tytuł oryginalny" />
+                              <TableColumn fx:id="polishTitleCol" editable="false" prefWidth="161.0" text="Tytuł polski" />
+                              <TableColumn fx:id="directorCol" editable="false" prefWidth="126.0" text="Reżyser" />
+                              <TableColumn fx:id="premiereCol" editable="false" prefWidth="91.0" text="Data premiery" />
+                              <TableColumn fx:id="movieLanguageCol" editable="false" text="Język" />
+                              <TableColumn fx:id="lengthCol" editable="false" prefWidth="57.0" text="Długość" />
+                              <TableColumn fx:id="movieGenresCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Gatunki" visible="false" />
+                              <TableColumn fx:id="actorsCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Aktorzy" visible="false" />
+                              <TableColumn fx:id="movieAboutCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Opis" visible="false" />
+                          </columns>
+                        </TableView>
+                         <Label layoutX="723.0" layoutY="14.0" prefHeight="20.0" prefWidth="313.0" text="Zawartość komórek krotki:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="Tytuł oryginalny:">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <Label fx:id="movieIdLabel" visible="false" alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <TextField fx:id="orgTitleTextBox" layoutX="879.0" layoutY="42.0" prefHeight="23.0" prefWidth="157.0" promptText="Tytuł">
+                             <font>
+                                 <Font size="10.0" />
+                             </font>
+                         </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="75.0" prefHeight="15.0" prefWidth="100.0" text="Tytuł polski:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="polishTitleTextBox" layoutX="879.0" layoutY="71.0" prefHeight="23.0" prefWidth="157.0" promptText="Tytuł">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="lengthTextBox" layoutX="879.0" layoutY="193.0" prefHeight="23.0" prefWidth="157.0" promptText="min">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="105.0" prefHeight="15.0" prefWidth="100.0" text="Reżyser:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="136.0" prefHeight="15.0" prefWidth="100.0" text="Data premiery:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="197.0" prefHeight="15.0" prefWidth="100.0" text="Długość (min):">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <FilteredComboBox fx:id="directorComboBox" layoutX="879.0" layoutY="100.0" prefHeight="25.0" prefWidth="157.0" />
+                        <DatePicker fx:id="premiereDatePicker" layoutX="879.0" layoutY="131.0" prefHeight="25.0" prefWidth="157.0" />
+                        <FilteredComboBox fx:id="languageComboBox" layoutX="879.0" layoutY="162.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="167.0" prefHeight="15.0" prefWidth="100.0" text="Język:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="actorsListView" layoutX="901.0" layoutY="247.0" prefHeight="135.0" prefWidth="135.0" />
+                        <ListView fx:id="allActorsListView" layoutX="723.0" layoutY="247.0" prefHeight="135.0" prefWidth="135.0" />
+                        <Label layoutX="724.0" layoutY="223.0" prefHeight="20.0" prefWidth="313.0" text="Aktorzy:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="movieAboutTextBox" layoutX="723.0" layoutY="574.0" prefHeight="89.0" prefWidth="314.0" promptText="Opis..." wrapText="true" />
+                        <Label layoutX="724.0" layoutY="551.0" prefHeight="20.0" prefWidth="313.0" text="Opis:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="addActorsButton" layoutX="867.0" layoutY="247.0" mnemonicParsing="false" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="removeActorsButton" layoutX="867.0" layoutY="357.0" mnemonicParsing="false" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addMovieButton" layoutX="724.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Dodaj" />
+                        <Button fx:id="modifyMovieButton" layoutX="844.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modyfikuj" />
+                        <Button fx:id="removeMovieButton" layoutX="963.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Usuń" />
+                        <Button fx:id="resetMovieButton" layoutX="960.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Wyczyść" />
+                        <Label layoutX="724.0" layoutY="387.0" prefHeight="20.0" prefWidth="313.0" text="Gatunki:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="allGenresListView" layoutX="723.0" layoutY="410.0" prefHeight="135.0" prefWidth="135.0" />
+                        <ListView fx:id="genresListView" layoutX="901.0" layoutY="410.0" prefHeight="135.0" prefWidth="135.0" />
+                        <Button fx:id="removeGenresButton" layoutX="867.0" layoutY="520.0" mnemonicParsing="false" text="&lt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addGenresButton" layoutX="867.0" layoutY="410.0" mnemonicParsing="false" text="&gt;">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                         <Label layoutX="5.0" layoutY="575.0" prefHeight="20.0" prefWidth="313.0" text="Wyszukiwanie:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <FilteredComboBox fx:id="searchMoviesCombobox" layoutX="5.0" layoutY="600.0" prefHeight="25.0" prefWidth="100.0" />
+                         <Pane fx:id="searchMoviesPane" layoutX="110.0" layoutY="600.0" prefHeight="25.0" prefWidth="150.0" />
+                         <Button fx:id="searchMoviesButton" layoutX="295.0" layoutY="600.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Wyszukaj">
+                             <font>
+                                 <Font name="System Bold" size="12.0" />
+                             </font>
+                         </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="castTab" text="Obsada">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="castTable" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="700.0">
+                          <columns>
+                            <TableColumn fx:id="idCastCol" editable="false" prefWidth="34.99998474121094" text="lp." />
+                            <TableColumn fx:id="nameCol" editable="false" prefWidth="156.99998474121094" text="Imię" />
+                              <TableColumn fx:id="surnameCol" editable="false" prefWidth="178.0" text="Nazwisko" />
+                              <TableColumn fx:id="birthDateCol" editable="false" prefWidth="95.0" text="Data urodzenia" />
+                              <TableColumn fx:id="deathDateCol" editable="false" prefWidth="90.0" text="Data śmierci" />
+                              <TableColumn fx:id="sexCol" editable="false" minWidth="6.0" prefWidth="50.0" text="Płeć" />
+                              <TableColumn fx:id="castCountryCol" editable="false" prefWidth="94.0" text="Kraj" />
+                              <TableColumn fx:id="castMoviesCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Filmy" visible="false" />
+                              <TableColumn fx:id="castAboutCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Opis" visible="false" />
+                          </columns>
+                        </TableView>
+                         <Label layoutX="723.0" layoutY="14.0" prefHeight="20.0" prefWidth="313.0" text="Zawartość komórek krotki:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <Label fx:id="castIdLabel" visible="false" alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="Imię:">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <TextField fx:id="nameTextBox" layoutX="879.0" layoutY="42.0" prefHeight="23.0" prefWidth="157.0" promptText="Imię">
+                             <font>
+                                 <Font size="10.0" />
+                             </font>
+                         </TextField>
+                        <TextField fx:id="surnameTextBox" layoutX="879.0" layoutY="71.0" prefHeight="23.0" prefWidth="157.0" promptText="Nazwisko">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                        <DatePicker fx:id="birthDatePicker" layoutX="879.0" layoutY="100.0" prefHeight="25.0" prefWidth="157.0" />
+                        <DatePicker fx:id="deathDatePicker" layoutX="879.0" layoutY="131.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="75.0" prefHeight="15.0" prefWidth="100.0" text="Nazwisko:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="105.0" prefHeight="15.0" prefWidth="100.0" text="Data urodzenia:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="136.0" prefHeight="15.0" prefWidth="100.0" text="Data śmierci:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="166.0" prefHeight="15.0" prefWidth="100.0" text="Płeć:">
+                            <font>
+                                <Font name="System Bold" size="10.0" />
+                            </font>
+                        </Label>
+                         <RadioButton fx:id="maleRadioButton" layoutX="958.0" layoutY="165.0" mnemonicParsing="false" selected="true" text="Mężczyzna" >
+                             <toggleGroup>
+                                 <ToggleGroup fx:id="Sex" />
+                             </toggleGroup>
+                         </RadioButton>
+                         <RadioButton fx:id="femaleRadioButton" layoutX="880.0" layoutY="165.0" mnemonicParsing="false" text="Kobieta" toggleGroup="$Sex"/>
+                        <FilteredComboBox fx:id="countryComboBox" layoutX="879.0" layoutY="190.0" prefHeight="25.0" prefWidth="157.0" />
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="195.0" prefHeight="15.0" prefWidth="100.0" text="Kraj:">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                         <TextArea fx:id="castAboutTextBox" layoutX="722.0" layoutY="240.0" prefHeight="89.0" prefWidth="314.0" promptText="Opis..." wrapText="true" />
+                         <Label layoutX="723.0" layoutY="217.0" prefHeight="20.0" prefWidth="313.0" text="Opis:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <Button fx:id="addCastButton" layoutX="724.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Dodaj" />
+                         <Button fx:id="modifyCastButton" layoutX="844.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modyfikuj" />
+                         <Button fx:id="removeCastButton" layoutX="963.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Usuń" />
+                         <Button fx:id="resetActorsButton" layoutX="960.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Wyczyść" />
+                         <FilteredComboBox fx:id="searchCastCombobox" layoutX="5.0" layoutY="600.0" prefHeight="25.0" prefWidth="100.0" />
+                         <Pane fx:id="searchCastPane" layoutX="110.0" layoutY="600.0" prefHeight="25.0" prefWidth="150.0" />
+                         <Button fx:id="searchCastButton" layoutX="295.0" layoutY="600.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Wyszukaj">
+                             <font>
+                                 <Font name="System Bold" size="12.0" />
+                             </font>
+                         </Button>
+                         <Label layoutX="5.0" layoutY="575.0" prefHeight="20.0" prefWidth="313.0" text="Wyszukiwanie:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                     </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="genresTab" text="Gatunki">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="genresTable" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="700.0">
+                          <columns>
+                            <TableColumn fx:id="idGenresCol" editable="false" prefWidth="75.0" text="lp." />
+                            <TableColumn fx:id="genreCol" editable="false" prefWidth="624.0" text="Gatunki" />
+                          </columns>
+                        </TableView>
+                         <Label fx:id="genreIdLabel" visible="false" alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <Label layoutX="723.0" layoutY="14.0" prefHeight="20.0" prefWidth="313.0" text="Zawartość komórek krotki:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="Gatunek:">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <TextField fx:id="genreTextBox" layoutX="879.0" layoutY="42.0" prefHeight="23.0" prefWidth="157.0" promptText="Gatunek">
+                             <font>
+                                 <Font size="10.0" />
+                             </font>
+                         </TextField>
+                         <Button fx:id="addGenreButton" layoutX="724.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Dodaj" />
+                         <Button fx:id="modifyGenreButton" layoutX="844.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modyfikuj" />
+                         <Button fx:id="removeGenreButton" layoutX="963.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Usuń" />
+                     </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="languagesTab" text="Języki">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="languagesTable" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="700.0">
+                          <columns>
+                            <TableColumn fx:id="idLanguagesCol" editable="false" prefWidth="75.0" text="lp." />
+                            <TableColumn fx:id="languageCol" editable="false" prefWidth="624.0" text="Języki" />
+                          </columns>
+                        </TableView>
+                         <Label fx:id="languageIdLabel" visible="false" alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <Label layoutX="723.0" layoutY="14.0" prefHeight="20.0" prefWidth="313.0" text="Zawartość komórek krotki:">
+                             <font>
+                                 <Font name="System Bold" size="14.0" />
+                             </font>
+                         </Label>
+                         <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="Język:">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                         <TextField fx:id="languageTextBox" layoutX="879.0" layoutY="42.0" prefHeight="23.0" prefWidth="157.0" promptText="Język">
+                             <font>
+                                 <Font size="10.0" />
+                             </font>
+                         </TextField>
+                         <Button fx:id="addLanguageButton" layoutX="724.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Dodaj" />
+                         <Button fx:id="modifyLanguageButton" layoutX="844.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modyfikuj" />
+                         <Button fx:id="removeLanguageButton" layoutX="963.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Usuń" />
+                     </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="countriesTab" text="Kraje">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="countriesTable" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="700.0">
+                          <columns>
+                            <TableColumn fx:id="idCountriesCol" editable="false" prefWidth="75.0" text="lp." />
+                            <TableColumn fx:id="countryCol" editable="false" prefWidth="624.0" text="Kraj" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="723.0" layoutY="14.0" prefHeight="20.0" prefWidth="313.0" text="Zawartość komórek krotki:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                         <Label fx:id="countryIdLabel" visible="false" alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="">
+                             <font>
+                                 <Font name="System Bold" size="10.0" />
+                             </font>
+                         </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="773.0" layoutY="46.0" prefHeight="15.0" prefWidth="100.0" text="Kraj:">
+                            <font>
+                                <Font name="System Bold" size="10.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="countryTextBox" layoutX="879.0" layoutY="42.0" prefHeight="23.0" prefWidth="157.0" promptText="Kraj">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                         <Button fx:id="addCountryButton" layoutX="724.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Dodaj" />
+                         <Button fx:id="modifyCountryButton" layoutX="844.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Modyfikuj" />
+                         <Button fx:id="removeCountryButton" layoutX="963.0" layoutY="682.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Usuń" />
+                     </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+
+      </TabPane>
+   </children>
+</AnchorPane>
